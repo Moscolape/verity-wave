@@ -1,1 +1,1 @@
-# SMART HABIT TRACKER APP"# verity-wave" 
+# Verity-Wave Frontend Assessment
