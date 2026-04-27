@@ -1,6 +1,6 @@
 export const Loader = () => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center pt-3">
       <div className="animate-spin rounded-full h-8 w-8 border-2 border-black border-t-transparent" />
       <span className="ml-3 text-gray-600 text-sm">
         Analyzing media...

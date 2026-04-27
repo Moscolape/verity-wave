@@ -1,8 +1,12 @@
+import { useRef } from "react";
+
 type Props = {
   onFileSelect: (file: File) => void;
 };
 
 export const UploadZone = ({ onFileSelect }: Props) => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -11,6 +15,11 @@ export const UploadZone = ({ onFileSelect }: Props) => {
 
     if (!validTypes.includes(file.type)) {
       alert("Unsupported file type");
+
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
+
       return;
     }
 
@@ -18,12 +27,19 @@ export const UploadZone = ({ onFileSelect }: Props) => {
   };
 
   return (
-    <div>
+    <div className="bg-white p-6 rounded">
       <h1 className="text-lg font-bold text-gray-700 mb-4">
         Upload Image or Video
       </h1>
-      <div className="border-2 border-dashed p-6 rounded-xl text-center bg-gray-100">
-        <input type="file" onChange={handleChange} />
+
+      <div className="border-2 border-dashed p-6 rounded-xl text-center bg-gray-50">
+
+        <input
+          ref={inputRef}
+          type="file"
+          onChange={handleChange}
+        />
+
       </div>
     </div>
   );
