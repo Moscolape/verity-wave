@@ -6,7 +6,8 @@ import type { FileState, Status } from "../types";
 import { Loader } from "../components/Loader";
 import { ResultCard } from "../components/ResultCard";
 import { ErrorBanner } from "../components/ErrorState";
-import { ASSETS } from "../constants/assets";
+import { AppLayout } from "../components/layout/AppLayout";
+
 
 const Dashboard = () => {
   const {
@@ -51,43 +52,42 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 space-y-4 font-Montserrat">
-      <div className="flex flex-col items-center">
-        <img src={ASSETS.logo} alt="Verity Wave Logo" className="my-5"/>
+    <AppLayout>
+      <div className="w-1/2">
         {status === "idle" && <UploadZone onFileSelect={handleFileSelect} />}
+
+        {fileState.file && (
+          <FilePreview
+            file={fileState.file}
+            previewUrl={fileState.previewUrl!}
+            onRemove={reset}
+          />
+        )}
+
+        {status === "ready" && (
+          <button
+            onClick={handleDetect}
+            disabled={loading}
+            className="bg-black text-white px-4 py-2 rounded-lg disabled:opacity-50"
+          >
+            Run Detection
+          </button>
+        )}
+
+        {(status === "processing" || loading) && <Loader />}
+
+        {status === "success" && result !== null && (
+          <ResultCard score={result} onReset={reset} />
+        )}
+
+        {status === "error" && (
+          <ErrorBanner
+            message={error || "Something went wrong"}
+            onRetry={handleDetect}
+          />
+        )}
       </div>
-
-      {fileState.file && (
-        <FilePreview
-          file={fileState.file}
-          previewUrl={fileState.previewUrl!}
-          onRemove={reset}
-        />
-      )}
-
-      {status === "ready" && (
-        <button
-          onClick={handleDetect}
-          disabled={loading}
-          className="bg-black text-white px-4 py-2 rounded-lg disabled:opacity-50"
-        >
-          Run Detection
-        </button>
-      )}
-
-      {(status === "processing" || loading) && <Loader />}
-
-      {status === "success" && result !== null && (
-        <ResultCard score={result} onReset={reset} />
-      )}
-
-      {status === "error" && (
-        <ErrorBanner
-          message={error || "Something went wrong"}
-          onRetry={handleDetect}
-        />
-      )}
-    </div>
+    </AppLayout>
   );
 };
 

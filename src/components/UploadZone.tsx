@@ -18,11 +18,13 @@ export const UploadZone = ({ onFileSelect }: Props) => {
   };
 
   return (
-    <div className="border-2 border-dashed p-6 rounded-xl text-center">
-      <input type="file" onChange={handleChange} />
-      <p className="mt-2 text-sm text-gray-500">
-        Upload image or video
-      </p>
+    <div>
+      <h1 className="text-lg font-bold text-gray-700 mb-4">
+        Upload Image or Video
+      </h1>
+      <div className="border-2 border-dashed p-6 rounded-xl text-center bg-gray-100">
+        <input type="file" onChange={handleChange} />
+      </div>
     </div>
   );
 };

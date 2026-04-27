@@ -8,7 +8,7 @@ export const FilePreview = ({ file, previewUrl, onRemove }: Props) => {
   const isVideo = file.type.startsWith("video");
 
   return (
-    <div className="rounded-xl overflow-hidden shadow-md">
+    <div className="rounded-xl overflow-hidden shadow-md mb-10 p-2">
       {isVideo ? (
         <video src={previewUrl} controls className="w-full" />
       ) : (
