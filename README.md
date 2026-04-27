@@ -36,42 +36,6 @@ The goals of this project, or rather, the objectives I had in mind were to demon
 
 ---
 
-## 📁 Project Structure
-
-The project is structured to reflect real-world scalable frontend architecture:
-src/
-│
-├── components/
-│ ├── layout/
-│ │ ├── AppLayout.tsx
-│ │ ├── Navbar.tsx
-│ │ └── Sidebar.tsx
-│ ├── ErrorState.tsx
-│ ├── Loader.tsx
-│ ├── PreviewCard.tsx
-│ ├── ResultCard.tsx
-│ └── UploadZone.tsx
-│
-├── pages/
-│ └── Dashboard.tsx
-│
-├── hooks/
-│ └── useDetection.ts
-│
-├── services/
-│ └── mockApi.ts
-│
-├── types/
-│ └── index.ts
-│
-├── constants/
-│ └── assets.ts
-│
-└── App.tsx
-
-
----
-
 ## 🧠 Architectural Decisions
 
 ### 1. Component Separation
