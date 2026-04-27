@@ -53,7 +53,7 @@ const Dashboard = () => {
 
   return (
     <AppLayout>
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         {status === "idle" && <UploadZone onFileSelect={handleFileSelect} />}
 
         {fileState.file && (
@@ -67,8 +67,7 @@ const Dashboard = () => {
         {status === "ready" && (
           <button
             onClick={handleDetect}
-            disabled={loading}
-            className="bg-black text-white px-4 py-2 rounded-lg disabled:opacity-50"
+            className="bg-black text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-800 transition"
           >
             Run Detection
           </button>

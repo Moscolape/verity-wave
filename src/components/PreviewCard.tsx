@@ -20,11 +20,11 @@ export const FilePreview = ({ file, previewUrl, onRemove }: Props) => {
         </div>
       )}
 
-      <div className="p-3 flex justify-between items-center">
+      <div className="p-3 md:flex justify-between items-center">
         <p className="text-sm">{file.name}</p>
         <button
           onClick={onRemove}
-          className="text-red-600 text-sm cursor-pointer hover:text-red-400"
+          className="text-red-600 text-sm cursor-pointer hover:text-red-700 hover:bg-gray-300 mt-5 md:mt-0 bg-gray-200 p-2 rounded-md transition"
         >
           Remove
         </button>
