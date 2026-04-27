@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { MoonLoader } from "react-spinners";
 
 import "./App.css";
 
@@ -11,8 +12,8 @@ function App() {
     <BrowserRouter>
       <Suspense
         fallback={
-          <div className="h-screen flex items-center justify-center">
-            <p className="text-gray-500">Loading dashboard...</p>
+          <div className="flex items-center justify-center h-screen">
+            <MoonLoader size={25} color="#FFA836" />
           </div>
         }
       >

@@ -31,7 +31,7 @@ export const ResultCard = ({ score, onReset }: Props) => {
 
       <button
         onClick={onReset}
-        className="text-sm text-gray-600 underline"
+        className="text-sm text-gray-600 cursor-pointer underline"
       >
         Analyze another file
       </button>
