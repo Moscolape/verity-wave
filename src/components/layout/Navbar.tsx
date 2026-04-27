@@ -1,3 +1,4 @@
+import { Menu } from "lucide-react";
 import { ASSETS } from "../../constants/assets";
 
 type Props = {
@@ -7,17 +8,10 @@ type Props = {
 export const Navbar = ({ onMenuClick }: Props) => {
   return (
     <header className="h-14 bg-white shadow flex items-center justify-between px-6">
-
-      <button
-        onClick={onMenuClick}
-        className="md:hidden text-xl"
-      >
-        ☰
-      </button>
-
-      <h2 className="font-semibold text-gray-700 text-xl">
-        Dashboard
-      </h2>
+      <div className="flex items-center gap-3">
+        <Menu onClick={onMenuClick} className="w-5 h-5 text-xl md:hidden" />
+        <h2 className="font-semibold text-gray-700 text-xl">Dashboard</h2>
+      </div>
 
       <div className="flex items-center gap-3">
         <img
@@ -26,7 +20,6 @@ export const Navbar = ({ onMenuClick }: Props) => {
           alt="User Icon"
         />
       </div>
-
     </header>
   );
 };
