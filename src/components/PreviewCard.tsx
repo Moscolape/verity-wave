@@ -12,12 +12,20 @@ export const FilePreview = ({ file, previewUrl, onRemove }: Props) => {
       {isVideo ? (
         <video src={previewUrl} controls className="w-full" />
       ) : (
-        <img src={previewUrl} className="w-full object-cover" />
+        <div className="w-full max-h-100 bg-gray-100 flex items-center justify-center overflow-hidden rounded-lg">
+          <img
+            src={previewUrl}
+            className="max-w-full max-h-100 object-contain"
+          />
+        </div>
       )}
 
       <div className="p-3 flex justify-between items-center">
         <p className="text-sm">{file.name}</p>
-        <button onClick={onRemove} className="text-red-600 text-sm cursor-pointer hover:text-red-400">
+        <button
+          onClick={onRemove}
+          className="text-red-600 text-sm cursor-pointer hover:text-red-400"
+        >
           Remove
         </button>
       </div>

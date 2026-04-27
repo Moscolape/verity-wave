@@ -5,13 +5,13 @@ type Props = {
 
 export const ErrorBanner = ({ message, onRetry }: Props) => {
   return (
-    <div className="p-4 bg-red-100 text-red-700 rounded-xl flex justify-between items-center">
+    <div className="p-4 bg-red-100 text-red-600 hover:text-red-500 rounded-xl flex justify-between items-center">
       <span>{message}</span>
 
       {onRetry && (
         <button
           onClick={onRetry}
-          className="text-sm underline font-medium"
+          className="text-sm underline font-medium cursor-pointer"
         >
           Retry
         </button>
